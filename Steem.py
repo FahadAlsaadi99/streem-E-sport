@@ -10,7 +10,7 @@ Storage = st.number_input("Storage", min_value=0.0, max_value=500000.0, value=15
 
 
 if st.button("Predict"):
-    response = requests.post(f"https://e-sport-fastapi.onrender.com/", json={
+    response = requests.post(f"https://e-sport-fastapi.onrender.com/predict", json={
         "Processor": Processor,
         "Memory": Memory,
         "Storage": Storage,
