@@ -4,9 +4,9 @@ import requests
 st.title("E-Sport")
 
 
-Processor = st.number_input("Processor ", min_value=0, max_value=1000, value=2,step=0.1)
-Memory = st.number_input("Memory ", min_value=0, max_value=700, value=2,step=0.1)
-Storage = st.number_input("Storage", min_value=0.0, max_value=500000.0, value=15000.0,step=0.1)
+Processor = st.number_input("Processor ", min_value=0, max_value=1000, value=2)
+Memory = st.number_input("Memory ", min_value=0, max_value=700, value=2)
+Storage = st.number_input("Storage", min_value=0.0, max_value=500000.0, value=15000.0)
 
 
 if st.button("Predict"):
