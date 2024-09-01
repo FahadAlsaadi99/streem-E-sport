@@ -19,6 +19,13 @@ if st.button("Predict"):
     if response.status_code == 200:
         prediction = response.json().get("cluster")
         
+        if prediction == [0]:
+            subset = df[df['cluster'] == 0]['Game Names']
+            sample_size = min(10, len(subset))
+            b = subset.sample(n=sample_size)
+            html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
+            st.markdown(html_table, unsafe_allow_html=True)
+            
         if prediction == [1]:
             subset = df[df['cluster'] == 1]['Game Names']
             sample_size = min(10, len(subset))
@@ -26,11 +33,26 @@ if st.button("Predict"):
             html_table = a.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
         
-        if prediction == [0]:
+        if prediction == [2]:
             subset = df[df['cluster'] == 0]['Game Names']
             sample_size = min(10, len(subset))
             b = subset.sample(n=sample_size)
             html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
+
+        if prediction == [3]:
+            subset = df[df['cluster'] == 0]['Game Names']
+            sample_size = min(10, len(subset))
+            b = subset.sample(n=sample_size)
+            html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
+            st.markdown(html_table, unsafe_allow_html=True)
+
+        if prediction == [4]:
+            subset = df[df['cluster'] == 0]['Game Names']
+            sample_size = min(10, len(subset))
+            b = subset.sample(n=sample_size)
+            html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
+            st.markdown(html_table, unsafe_allow_html=True)
+        
     else:
         st.write("Error: Could not get prediction from the API")
