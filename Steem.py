@@ -21,14 +21,14 @@ if st.button("Predict"):
         
         if prediction == [1]:
             subset = df[df['cluster'] == 1]['Game Names']
-            sample_size = min(10, len(subset))  # تعديل العدد هنا إلى 10
-            a = subset.sample(n=sample_size)  # إزالة random_state لجعل العينة عشوائية
-            st.write(a)
+            sample_size = min(10, len(subset))
+            a = subset.sample(n=sample_size) 
+            st.write(a.to_frame().reset_index(drop=True))
         
         if prediction == [0]:
             subset = df[df['cluster'] == 0]['Game Names']
-            sample_size = min(10, len(subset))  # تعديل العدد هنا إلى 10
-            b = subset.sample(n=sample_size)  # إزالة random_state لجعل العينة عشوائية
-            st.write(b)
+            sample_size = min(10, len(subset)) 
+            b = subset.sample(n=sample_size) 
+            st.write(b.to_frame().reset_index(drop=True))
     else:
         st.write("Error: Could not get prediction from the API")
