@@ -34,24 +34,24 @@ if st.button("Predict"):
             st.markdown(html_table, unsafe_allow_html=True)
         
         if prediction == [2]:
-            subset = df[df['cluster'] == 0]['Game Names']
+            subset = df[df['cluster'] == 2]['Game Names']
             sample_size = min(10, len(subset))
-            b = subset.sample(n=sample_size)
-            html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
+            c = subset.sample(n=sample_size)
+            html_table = c.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
 
         if prediction == [3]:
-            subset = df[df['cluster'] == 0]['Game Names']
+            subset = df[df['cluster'] == 3]['Game Names']
             sample_size = min(10, len(subset))
-            b = subset.sample(n=sample_size)
-            html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
+            d = subset.sample(n=sample_size)
+            html_table = d.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
 
         if prediction == [4]:
             subset = df[df['cluster'] == 0]['Game Names']
             sample_size = min(10, len(subset))
-            b = subset.sample(n=sample_size)
-            html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
+            e = subset.sample(n=sample_size)
+            html_table = e.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
         
     else:
