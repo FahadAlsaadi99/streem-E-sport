@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import pandas as pd
 
 st.title("E-Sport")
 
@@ -8,7 +9,7 @@ Processor = st.number_input("Processor ", min_value=0.0, max_value=220.0, value=
 Memory = st.number_input("Memory ", min_value=0.0, max_value=8192.0, value=2.0)
 Storage = st.number_input("Storage", min_value=0.0, max_value=30000.0, value=15000.0)
 
-
+df = pd.read_csv('list_of_games.csv')
 if st.button("Predict"):
     response = requests.post(f"https://e-sport-fastapi.onrender.com/predict", json={
         "Processor": Processor,
