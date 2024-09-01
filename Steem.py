@@ -21,7 +21,7 @@ if st.button("Predict"):
         prediction = response.json().get("cluster")
         st.write(f"The predicted cluster is: {prediction}")
         if prediction == [1]:
-            st.write('true')
+            st.write(df[['Game Names']][df['cluster'] == 1])
     else:
         st.write("Error: Could not get prediction from the API")
 
