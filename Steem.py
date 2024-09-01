@@ -17,19 +17,16 @@ if st.button("Predict"):
         "Storage": Storage,
     })
     
-    if response.status_code == 200:
-        prediction = response.json().get("cluster")
-        
-        if prediction == [1]:
+   if prediction == [1]:
             subset = df[df['cluster'] == 1]['Game Names']
             sample_size = min(10, len(subset))  # تعديل العدد هنا إلى 10
-            a = subset.sample(n=sample_size, random_state=1)
+            a = subset.sample(n=sample_size)  # إزالة random_state لجعل العينة عشوائية
             st.write(a)
         
         if prediction == [0]:
             subset = df[df['cluster'] == 0]['Game Names']
             sample_size = min(10, len(subset))  # تعديل العدد هنا إلى 10
-            b = subset.sample(n=sample_size, random_state=1)
+            b = subset.sample(n=sample_size)  # إزالة random_state لجعل العينة عشوائية
             st.write(b)
     else:
         st.write("Error: Could not get prediction from the API")
