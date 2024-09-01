@@ -19,9 +19,9 @@ if st.button("Predict"):
     
     if response.status_code == 200:
         prediction = response.json().get("cluster")
-        st.write(f"The predicted cluster is: {prediction}")
+        #st.write(f"The predicted cluster is: {prediction}")
         if prediction == [1]:
-            st.write(df[['Game Names']][df['cluster'] == 1])
+            st.write(df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1))
         if prediction == [0]:
             st.write(df[['Game Names']][df['cluster'] == 0])
     else:
