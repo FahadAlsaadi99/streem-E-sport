@@ -21,9 +21,11 @@ if st.button("Predict"):
         prediction = response.json().get("cluster")
         #st.write(f"The predicted cluster is: {prediction}")
         if prediction == [1]:
-            st.write(df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1))
+            a = df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1)
+            st.write(a)
         if prediction == [0]:
-            st.write(df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1))
+            b = df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1)
+            st.write(b)
     else:
         st.write("Error: Could not get prediction from the API")
 
