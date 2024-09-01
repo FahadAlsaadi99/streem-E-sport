@@ -5,7 +5,7 @@ import pandas as pd
 st.title("E-Sport")
 
 
-Processor = st.number_input("Processor ", min_value=0, max_value=220, value=2)
+Processor = st.number_input("Processor ", min_value=0.0, max_value=220.0, value=2.0)
 Memory = st.number_input("Memory ", min_value=0.0, max_value=8192.0, value=2.0)
 Storage = st.number_input("Storage", min_value=0.0, max_value=30000.0, value=15000.0)
 
