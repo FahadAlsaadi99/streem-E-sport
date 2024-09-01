@@ -22,6 +22,8 @@ if st.button("Predict"):
         st.write(f"The predicted cluster is: {prediction}")
         if prediction == [1]:
             st.write(df[['Game Names']][df['cluster'] == 1])
+        if if prediction == [1]:
+            st.write(df[['Game Names']][df['cluster'] == 0])
     else:
         st.write("Error: Could not get prediction from the API")
 
