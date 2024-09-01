@@ -30,6 +30,7 @@ if st.button("Predict"):
             subset = df[df['cluster'] == 0]['Game Names']
             sample_size = min(10, len(subset)) 
             b = subset.sample(n=sample_size) 
-            st.write(b.to_frame().reset_index(drop=True))
+            shtml_table_0 = a.to_frame().reset_index(drop=True).to_html(index=False)
+            st.markdown(html_table_0, unsafe_allow_html=True)
     else:
         st.write("Error: Could not get prediction from the API")
