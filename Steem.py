@@ -19,13 +19,11 @@ if st.button("Predict"):
     if response.status_code == 200:
         prediction = response.json().get("cluster")
         
-       if response.status_code == 200:
-        prediction = response.json().get("cluster")
-        
         if prediction == [1]:
             subset = df[df['cluster'] == 1]['Game Names']
             sample_size = min(10, len(subset))
             a = subset.sample(n=sample_size)
+            # تحويل إلى HTML وعرضه بدون فهرس
             html_table = a.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
         
@@ -33,6 +31,7 @@ if st.button("Predict"):
             subset = df[df['cluster'] == 0]['Game Names']
             sample_size = min(10, len(subset))
             b = subset.sample(n=sample_size)
+            # تحويل إلى HTML وعرضه بدون فهرس
             html_table = b.to_frame().reset_index(drop=True).to_html(index=False)
             st.markdown(html_table, unsafe_allow_html=True)
     else:
