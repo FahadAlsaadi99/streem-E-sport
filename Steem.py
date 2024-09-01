@@ -23,7 +23,7 @@ if st.button("Predict"):
         if prediction == [1]:
             st.write(df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1))
         if prediction == [0]:
-            st.write(df[['Game Names']][df['cluster'] == 0])
+            st.write(df[df['cluster'] == 1]['Game Names'].sample(n=100, random_state=1))
     else:
         st.write("Error: Could not get prediction from the API")
 
